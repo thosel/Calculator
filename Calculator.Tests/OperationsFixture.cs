@@ -3,12 +3,12 @@
 namespace Calculator.Tests
 {
     /// <summary>
-    /// Makes it possible for tests to share a operations instance.
+    /// Makes it possible for tests to share an operations instance.
     /// </summary>
-    class OperationsFixture : IDisposable
+    public class OperationsFixture : IDisposable
     {
         /// <summary>
-        /// Initializes and sets a operations instance property.
+        /// Initializes and sets an operations instance property.
         /// </summary>
         public OperationsFixture()
         {
