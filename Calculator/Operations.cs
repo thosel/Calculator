@@ -19,6 +19,16 @@ namespace Calculator
         }
 
         /// <summary>
+        /// Adds two terms together and returns the sum.
+        /// </summary>
+        /// <param name="terms">Array containing the terms.</param>
+        /// <returns>The sum.</returns>
+        public double Add(double[] terms)
+        {
+            return Add(terms[0], terms[1]);
+        }
+
+        /// <summary>
         /// Subtracts the subtrahend from the minuend and returns the difference.
         /// </summary>
         /// <param name="minuend">The minuend.</param>
@@ -27,6 +37,17 @@ namespace Calculator
         public double Subtract(double minuend, double subtrahend)
         {
             return minuend - subtrahend;
+        }
+
+        /// <summary>
+        /// Subtracts the subtrahend from the minuend and returns the difference.
+        /// </summary>
+        /// <param name="terms">Array containing the terms where index 0 should 
+        /// contain the minuend and index 1 should contain the subtrahend.</param>
+        /// <returns>The difference.</returns>
+        public double Subtract(double[] terms)
+        {
+            return Subtract(terms[0], terms[1]);
         }
 
         /// <summary>

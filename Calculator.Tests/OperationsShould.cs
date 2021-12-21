@@ -36,6 +36,21 @@ namespace Calculator.Tests
         }
 
         /// <summary>
+        /// Asserts the sum to be correct when adding using an array as an argument.
+        /// </summary>
+        /// <param name="terms">Array containing the terms.</param>
+        /// <param name="expectedSum">The expected sum.</param>
+        [Theory]
+        [InlineData(new double[] { 5, 5 }, 10)]
+        [InlineData(new double[] { -5, -5 }, -10)]
+        [InlineData(new double[] { 5, -5 }, 0)]
+        [InlineData(new double[] { 5.001, 5 }, 10.001)]
+        public void AddCorrectlyPassingArrayArgument(double[] terms, double expectedSum)
+        {
+            Assert.Equal(expectedSum, _sut.Add(terms), 3);
+        }
+
+        /// <summary>
         /// Asserts the difference to be correct when subtracting.
         /// </summary>
         /// <param name="minuend">The minuend.</param>
@@ -49,6 +64,22 @@ namespace Calculator.Tests
         public void SubtractCorrectly(double minuend, double subtrahend, double expectedDifference)
         {
             Assert.Equal(expectedDifference, _sut.Subtract(minuend, subtrahend), 3);
+        }
+
+        /// <summary>
+        /// Asserts the difference to be correct when subtracting using an array as an argument.
+        /// </summary>
+        /// <param name="terms">Array containing the terms where index 0 should 
+        /// contain the minuend and index 1 should contain the subtrahend.</param>
+        /// <param name="expectedDifference">The expected difference.</param>
+        [Theory]
+        [InlineData(new double[] { 5, 5 }, 0)]
+        [InlineData(new double[] { -5, -5 }, 0)]
+        [InlineData(new double[] { 5, -5 }, 10)]
+        [InlineData(new double[] { 5.001, 5 }, 0.001)]
+        public void SubtractCorrectlyPassingArrayArgument(double[] terms, double expectedDifference)
+        {
+            Assert.Equal(expectedDifference, _sut.Subtract(terms), 3);
         }
 
         /// <summary>
