@@ -41,7 +41,7 @@ namespace Calculator
             _view.ShowMainMenu();
 
             // Sets the menuSelection to the user input or -1 if the input was invalid to trigger the default case in the switch below.
-            int menuSelection = int.TryParse(GetUserInput(), out int userInput) ? userInput : -1;
+            int menuSelection = int.TryParse(ReadLine(), out int userInput) ? userInput : -1;
 
             switch (menuSelection)
             {
@@ -70,15 +70,6 @@ namespace Calculator
                     break;
             }
 
-        }
-
-        /// <summary>
-        /// Gets input from the user.
-        /// </summary>
-        /// <returns>The user input.</returns>
-        private string GetUserInput()
-        {
-            return ReadLine();
         }
 
         /// <summary>
@@ -198,7 +189,7 @@ namespace Calculator
             do
             {
                 _view.ShowDialog(heading, message);
-            } while (!double.TryParse(GetUserInput(), out input));
+            } while (!double.TryParse(ReadLine(), out input));
 
             return input;
         }
