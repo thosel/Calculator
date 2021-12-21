@@ -10,8 +10,8 @@ namespace Calculator
         /// <summary>
         /// Adds two terms together and returns the sum.
         /// </summary>
-        /// <param name="firstTerm">The first term.</param>
-        /// <param name="secondTerm">The second term.</param>
+        /// <param name="firstTerm">The first term</param>
+        /// <param name="secondTerm">The second term</param>
         /// <returns>The sum.</returns>
         public double Add(double firstTerm, double secondTerm)
         {
@@ -21,7 +21,7 @@ namespace Calculator
         /// <summary>
         /// Adds all the terms together in an array and returns the sum.
         /// </summary>
-        /// <param name="terms">Array containing the terms.</param>
+        /// <param name="terms">Array containing the terms</param>
         /// <returns>The sum.</returns>
         public double Add(params double[] terms)
         {
@@ -38,8 +38,8 @@ namespace Calculator
         /// <summary>
         /// Subtracts the subtrahend from the minuend and returns the difference.
         /// </summary>
-        /// <param name="minuend">The minuend.</param>
-        /// <param name="subtrahend">The subtrahend.</param>
+        /// <param name="minuend">The minuend</param>
+        /// <param name="subtrahend">The subtrahend</param>
         /// <returns>The difference.</returns>
         public double Subtract(double minuend, double subtrahend)
         {
@@ -50,7 +50,7 @@ namespace Calculator
         /// Subtracts subtrahends from the minuends and returns the difference.
         /// </summary>
         /// <param name="terms">Array containing the terms where index 0 contains the first 
-        /// minuend and the following indexes contains the subtrahends.</param>
+        /// minuend and the following indexes contains the subtrahends</param>
         /// <returns>The difference.</returns>
         public double Subtract(params double[] terms)
         {
@@ -67,8 +67,8 @@ namespace Calculator
         /// <summary>
         /// Multiplies the multiplicand with the multiplier and returns the product.
         /// </summary>
-        /// <param name="multiplicand">The multiplicand.</param>
-        /// <param name="multiplier">The multiplier.</param>
+        /// <param name="multiplicand">The multiplicand</param>
+        /// <param name="multiplier">The multiplier</param>
         /// <returns>The product.</returns>
         public double Multiply(double multiplicand, double multiplier)
         {
@@ -78,8 +78,8 @@ namespace Calculator
         /// <summary>
         /// Divides the dividend with the divisor and returns the quotient.
         /// </summary>
-        /// <param name="dividend">The dividend.</param>
-        /// <param name="divisor">The divisor.</param>
+        /// <param name="dividend">The dividend</param>
+        /// <param name="divisor">The divisor</param>
         /// <returns>The quotient.</returns>
         public double Divide(double dividend, double divisor)
         {

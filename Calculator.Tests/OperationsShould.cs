@@ -13,7 +13,7 @@ namespace Calculator.Tests
         /// <summary>
         /// Initializes an operations instance to be the system under test.
         /// </summary>
-        /// <param name="operationsFixture">The fixture to retrieve the operations instance from.</param>
+        /// <param name="operationsFixture">The fixture to retrieve the operations instance from</param>
         public OperationsShould(OperationsFixture operationsFixture)
         {
             _sut = operationsFixture.OperationsInstance;
@@ -24,9 +24,9 @@ namespace Calculator.Tests
         /// <summary>
         /// Asserts the sum to be correct when adding.
         /// </summary>
-        /// <param name="firstTerm">The first term.</param>
-        /// <param name="secondTerm">The second term.</param>
-        /// <param name="expectedSum">The expected sum.</param>
+        /// <param name="firstTerm">The first term</param>
+        /// <param name="secondTerm">The second term</param>
+        /// <param name="expectedSum">The expected sum</param>
         [Theory]
         [Trait("Category", "Calculations")]
         [InlineData(5, 5, 10)]
@@ -41,8 +41,8 @@ namespace Calculator.Tests
         /// <summary>
         /// Asserts the sum to be correct when adding using an array as an argument.
         /// </summary>
-        /// <param name="terms">Array containing the terms.</param>
-        /// <param name="expectedSum">The expected sum.</param>
+        /// <param name="terms">Array containing the terms</param>
+        /// <param name="expectedSum">The expected sum</param>
         [Theory]
         [Trait("Category", "Calculations")]
         [InlineData(new double[] { 5, 5 }, 10)]
@@ -58,9 +58,9 @@ namespace Calculator.Tests
         /// <summary>
         /// Asserts the difference to be correct when subtracting.
         /// </summary>
-        /// <param name="minuend">The minuend.</param>
-        /// <param name="subtrahend">The subtrahend.</param>
-        /// <param name="expectedDifference">The expected difference.</param>
+        /// <param name="minuend">The minuend</param>
+        /// <param name="subtrahend">The subtrahend</param>
+        /// <param name="expectedDifference">The expected difference</param>
         [Theory]
         [Trait("Category", "Calculations")]
         [InlineData(5, 5, 0)]
@@ -76,8 +76,8 @@ namespace Calculator.Tests
         /// Asserts the difference to be correct when subtracting using an array as an argument.
         /// </summary>
         /// <param name="terms">Array containing the terms where index 0 contains the first 
-        /// minuend and the following indexes contains the subtrahends.</param>
-        /// <param name="expectedDifference">The expected difference.</param>
+        /// minuend and the following indexes contains the subtrahends</param>
+        /// <param name="expectedDifference">The expected difference</param>
         [Theory]
         [Trait("Category", "Calculations")]
         [InlineData(new double[] { 5, 5 }, 0)]
@@ -93,9 +93,9 @@ namespace Calculator.Tests
         /// <summary>
         /// Asserts the product to be correct when multiplying.
         /// </summary>
-        /// <param name="multiplicand">The multiplicand.</param>
-        /// <param name="multiplier">The multiplier.</param>
-        /// <param name="expectedProduct">The expected product.</param>
+        /// <param name="multiplicand">The multiplicand</param>
+        /// <param name="multiplier">The multiplier</param>
+        /// <param name="expectedProduct">The expected product</param>
         [Theory]
         [Trait("Category", "Calculations")]
         [InlineData(5, 5, 25)]
@@ -110,9 +110,9 @@ namespace Calculator.Tests
         /// <summary>
         /// Asserts the quotient to be correct when dividing.
         /// </summary>
-        /// <param name="dividend">The dividend.</param>
-        /// <param name="divisor">The divisor.</param>
-        /// <param name="expectedQuotient">The expected quotient.</param>
+        /// <param name="dividend">The dividend</param>
+        /// <param name="divisor">The divisor</param>
+        /// <param name="expectedQuotient">The expected quotient</param>
         [Theory]
         [Trait("Category", "Calculations")]
         [InlineData(5, 5, 1)]
@@ -122,20 +122,6 @@ namespace Calculator.Tests
         public void DivideCorrectly(double dividend, double divisor, double expectedQuotient)
         {
             Assert.Equal(expectedQuotient, _sut.Divide(dividend, divisor), 3);
-        }
-
-        /// <summary>
-        /// Asserts a divide by zero exception is thrown when dividing by zero.
-        /// </summary>
-        /// <param name="dividend">The dividend.</param>
-        /// <param name="divisor">The divisor.</param>
-        [Theory]
-        [Trait("Category", "Calculations")]
-        [InlineData(0)]
-        [InlineData(null)]
-        public void ThrowExceptionWhenDividingByZero(double divisor)
-        {
-            Assert.Throws<DivideByZeroException>(() => _sut.Divide(100, divisor));
         }
 
         #endregion

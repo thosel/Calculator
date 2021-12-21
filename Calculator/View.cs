@@ -33,8 +33,8 @@ namespace Calculator
         /// <summary>
         /// Displays a dialog to the user.
         /// </summary>
-        /// <param name="heading">The dialog heading.</param>
-        /// <param name="message">The dialog message.</param>
+        /// <param name="heading">The dialog heading</param>
+        /// <param name="message">The dialog message</param>
         public void ShowDialog(string heading, string message)
         {
             Clear();
@@ -47,8 +47,8 @@ namespace Calculator
         /// <summary>
         /// Displays a result to the user.
         /// </summary>
-        /// <param name="heading">The result heading.</param>
-        /// <param name="message">The result message.</param>
+        /// <param name="heading">The result heading</param>
+        /// <param name="message">The result message</param>
         public void DisplayResult(string heading, string message)
         {
             Clear();
