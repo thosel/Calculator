@@ -19,13 +19,20 @@ namespace Calculator
         }
 
         /// <summary>
-        /// Adds two terms together and returns the sum.
+        /// Adds all the terms together in an array and returns the sum.
         /// </summary>
         /// <param name="terms">Array containing the terms.</param>
         /// <returns>The sum.</returns>
-        public double Add(double[] terms)
+        public double Add(params double[] terms)
         {
-            return Add(terms[0], terms[1]);
+            double sum = 0;
+
+            for (int i = 0; i < terms.Length; i++)
+            {
+                sum += terms[i];
+            }
+
+            return sum;
         }
 
         /// <summary>
@@ -40,14 +47,21 @@ namespace Calculator
         }
 
         /// <summary>
-        /// Subtracts the subtrahend from the minuend and returns the difference.
+        /// Subtracts subtrahends from the minuends and returns the difference.
         /// </summary>
-        /// <param name="terms">Array containing the terms where index 0 should 
-        /// contain the minuend and index 1 should contain the subtrahend.</param>
+        /// <param name="terms">Array containing the terms where index 0 contains the first 
+        /// minuend and the following indexes contains the subtrahends.</param>
         /// <returns>The difference.</returns>
-        public double Subtract(double[] terms)
+        public double Subtract(params double[] terms)
         {
-            return Subtract(terms[0], terms[1]);
+            double difference = terms[0];
+
+            for (int i = 1; i < terms.Length; i++)
+            {
+                difference -= terms[i];
+            }
+
+            return difference;
         }
 
         /// <summary>
