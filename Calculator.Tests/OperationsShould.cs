@@ -19,6 +19,8 @@ namespace Calculator.Tests
             _sut = operationsFixture.OperationsInstance;
         }
 
+        #region Calculations        
+
         /// <summary>
         /// Asserts the sum to be correct when adding.
         /// </summary>
@@ -26,6 +28,7 @@ namespace Calculator.Tests
         /// <param name="secondTerm">The second term.</param>
         /// <param name="expectedSum">The expected sum.</param>
         [Theory]
+        [Trait("Category", "Calculations")]
         [InlineData(5, 5, 10)]
         [InlineData(-5,-5, -10)]
         [InlineData(5, -5, 0)]
@@ -41,6 +44,7 @@ namespace Calculator.Tests
         /// <param name="terms">Array containing the terms.</param>
         /// <param name="expectedSum">The expected sum.</param>
         [Theory]
+        [Trait("Category", "Calculations")]
         [InlineData(new double[] { 5, 5 }, 10)]
         [InlineData(new double[] { -5, -5 }, -10)]
         [InlineData(new double[] { 5, -5 }, 0)]
@@ -57,6 +61,7 @@ namespace Calculator.Tests
         /// <param name="subtrahend">The subtrahend.</param>
         /// <param name="expectedDifference">The expected difference.</param>
         [Theory]
+        [Trait("Category", "Calculations")]
         [InlineData(5, 5, 0)]
         [InlineData(-5, -5, 0)]
         [InlineData(5, -5, 10)]
@@ -73,6 +78,7 @@ namespace Calculator.Tests
         /// contain the minuend and index 1 should contain the subtrahend.</param>
         /// <param name="expectedDifference">The expected difference.</param>
         [Theory]
+        [Trait("Category", "Calculations")]
         [InlineData(new double[] { 5, 5 }, 0)]
         [InlineData(new double[] { -5, -5 }, 0)]
         [InlineData(new double[] { 5, -5 }, 10)]
@@ -89,6 +95,7 @@ namespace Calculator.Tests
         /// <param name="multiplier">The multiplier.</param>
         /// <param name="expectedProduct">The expected product.</param>
         [Theory]
+        [Trait("Category", "Calculations")]
         [InlineData(5, 5, 25)]
         [InlineData(-5, -5, 25)]
         [InlineData(5, -5, -25)]
@@ -105,6 +112,7 @@ namespace Calculator.Tests
         /// <param name="divisor">The divisor.</param>
         /// <param name="expectedQuotient">The expected quotient.</param>
         [Theory]
+        [Trait("Category", "Calculations")]
         [InlineData(5, 5, 1)]
         [InlineData(-5, -5, 1)]
         [InlineData(5, -5, -1)]
@@ -120,11 +128,14 @@ namespace Calculator.Tests
         /// <param name="dividend">The dividend.</param>
         /// <param name="divisor">The divisor.</param>
         [Theory]
+        [Trait("Category", "Calculations")]
         [InlineData(0)]
         [InlineData(null)]
         public void ThrowExceptionWhenDividingByZero(double divisor)
         {
             Assert.Throws<DivideByZeroException>(() => _sut.Divide(100, divisor));
         }
+
+        #endregion
     }
 }
