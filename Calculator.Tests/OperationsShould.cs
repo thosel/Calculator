@@ -49,6 +49,7 @@ namespace Calculator.Tests
         [InlineData(new double[] { -5, -5 }, -10)]
         [InlineData(new double[] { 5, -5 }, 0)]
         [InlineData(new double[] { 5.001, 5 }, 10.001)]
+        [InlineData(new double[] { 5.001, 5, -24.752, 0.14, -3174.225 }, -3188.836)]
         public void AddCorrectlyPassingArrayArgument(double[] terms, double expectedSum)
         {
             Assert.Equal(expectedSum, _sut.Add(terms), 3);
@@ -74,8 +75,8 @@ namespace Calculator.Tests
         /// <summary>
         /// Asserts the difference to be correct when subtracting using an array as an argument.
         /// </summary>
-        /// <param name="terms">Array containing the terms where index 0 should 
-        /// contain the minuend and index 1 should contain the subtrahend.</param>
+        /// <param name="terms">Array containing the terms where index 0 contains the first 
+        /// minuend and the following indexes contains the subtrahends.</param>
         /// <param name="expectedDifference">The expected difference.</param>
         [Theory]
         [Trait("Category", "Calculations")]
@@ -83,6 +84,7 @@ namespace Calculator.Tests
         [InlineData(new double[] { -5, -5 }, 0)]
         [InlineData(new double[] { 5, -5 }, 10)]
         [InlineData(new double[] { 5.001, 5 }, 0.001)]
+        [InlineData(new double[] { 5.001, 5, -24.752, 0.14, -3174.225 }, 3198.838)]
         public void SubtractCorrectlyPassingArrayArgument(double[] terms, double expectedDifference)
         {
             Assert.Equal(expectedDifference, _sut.Subtract(terms), 3);
