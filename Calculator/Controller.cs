@@ -181,7 +181,7 @@ namespace Calculator
         /// </summary>
         /// <param name="heading">A heading for the input dialog</param>
         /// <param name="message">A message for the input dialog</param>
-        /// <returns>The double input.</returns>
+        /// <returns>The double input</returns>
         private double GetUserDoubleInput(string heading, string message)
         {
             double input;

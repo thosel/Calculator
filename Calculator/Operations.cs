@@ -12,7 +12,7 @@ namespace Calculator
         /// </summary>
         /// <param name="firstTerm">The first term</param>
         /// <param name="secondTerm">The second term</param>
-        /// <returns>The sum.</returns>
+        /// <returns>The sum</returns>
         public double Add(double firstTerm, double secondTerm)
         {
             return firstTerm + secondTerm;
@@ -22,7 +22,7 @@ namespace Calculator
         /// Adds all the terms together in an array and returns the sum.
         /// </summary>
         /// <param name="terms">Array containing the terms</param>
-        /// <returns>The sum.</returns>
+        /// <returns>The sum</returns>
         public double Add(params double[] terms)
         {
             double sum = 0;
@@ -40,7 +40,7 @@ namespace Calculator
         /// </summary>
         /// <param name="minuend">The minuend</param>
         /// <param name="subtrahend">The subtrahend</param>
-        /// <returns>The difference.</returns>
+        /// <returns>The difference</returns>
         public double Subtract(double minuend, double subtrahend)
         {
             return minuend - subtrahend;
@@ -51,7 +51,7 @@ namespace Calculator
         /// </summary>
         /// <param name="terms">Array containing the terms where index 0 contains the first 
         /// minuend and the following indexes contains the subtrahends</param>
-        /// <returns>The difference.</returns>
+        /// <returns>The difference</returns>
         public double Subtract(params double[] terms)
         {
             double difference = terms[0];
@@ -69,7 +69,7 @@ namespace Calculator
         /// </summary>
         /// <param name="multiplicand">The multiplicand</param>
         /// <param name="multiplier">The multiplier</param>
-        /// <returns>The product.</returns>
+        /// <returns>The product</returns>
         public double Multiply(double multiplicand, double multiplier)
         {
             return multiplicand * multiplier;
@@ -80,7 +80,7 @@ namespace Calculator
         /// </summary>
         /// <param name="dividend">The dividend</param>
         /// <param name="divisor">The divisor</param>
-        /// <returns>The quotient.</returns>
+        /// <returns>The quotient</returns>
         public double Divide(double dividend, double divisor)
         {
             if (divisor  == 0)
