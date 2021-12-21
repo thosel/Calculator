@@ -26,10 +26,10 @@ namespace Calculator.Tests
         /// <param name="secondTerm">The second term.</param>
         /// <param name="expectedSum">The expected sum.</param>
         [Theory]
-        [InlineData(5, 5, 10.0)]
-        [InlineData(-5,-5, -10.0)]
+        [InlineData(5, 5, 10)]
+        [InlineData(-5,-5, -10)]
         [InlineData(5, -5, 0)]
-        [InlineData(5.001, 5.0, 10.001)]
+        [InlineData(5.001, 5, 10.001)]
         public void AddCorrectly(double firstTerm, double secondTerm, double expectedSum)
         {
             Assert.Equal(expectedSum, _sut.Add(firstTerm, secondTerm), 3);
@@ -42,10 +42,10 @@ namespace Calculator.Tests
         /// <param name="subtrahend">The subtrahend.</param>
         /// <param name="expectedDifference">The expected difference.</param>
         [Theory]
-        [InlineData(5, 5, 0.0)]
-        [InlineData(-5, -5, 0.0)]
+        [InlineData(5, 5, 0)]
+        [InlineData(-5, -5, 0)]
         [InlineData(5, -5, 10)]
-        [InlineData(5.001, 5.0, 0.001)]
+        [InlineData(5.001, 5, 0.001)]
         public void SubtractCorrectly(double minuend, double subtrahend, double expectedDifference)
         {
             Assert.Equal(expectedDifference, _sut.Subtract(minuend, subtrahend), 3);
@@ -58,10 +58,10 @@ namespace Calculator.Tests
         /// <param name="multiplier">The multiplier.</param>
         /// <param name="expectedProduct">The expected product.</param>
         [Theory]
-        [InlineData(5, 5, 25.0)]
-        [InlineData(-5, -5, 25.0)]
+        [InlineData(5, 5, 25)]
+        [InlineData(-5, -5, 25)]
         [InlineData(5, -5, -25)]
-        [InlineData(5.001, 5.0, 25.005)]
+        [InlineData(5.001, 5, 25.005)]
         public void MultiplyCorrectly(double multiplicand, double multiplier, double expectedProduct)
         {
             Assert.Equal(expectedProduct, _sut.Multiply(multiplicand, multiplier), 3);
@@ -74,10 +74,10 @@ namespace Calculator.Tests
         /// <param name="divisor">The divisor.</param>
         /// <param name="expectedQuotient">The expected quotient.</param>
         [Theory]
-        [InlineData(5, 5, 1.0)]
-        [InlineData(-5, -5, 1.0)]
+        [InlineData(5, 5, 1)]
+        [InlineData(-5, -5, 1)]
         [InlineData(5, -5, -1)]
-        [InlineData(5.001, 5.0, 1.000)]
+        [InlineData(5.001, 5, 1.000)]
         public void DivideCorrectly(double dividend, double divisor, double expectedQuotient)
         {
             Assert.Equal(expectedQuotient, _sut.Divide(dividend, divisor), 3);
