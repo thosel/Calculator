@@ -137,7 +137,8 @@ namespace Calculator.Tests
         [Trait("Category", "Exceptions")]
         [InlineData(new double[] { Double.MaxValue, Double.MaxValue })]
         [InlineData(new double[] { Double.MinValue, Double.MinValue })]
-        [InputsOverflowExceptionArrayArgumentsData]
+        [MemberData(nameof(InputOverflowExceptionTestData.GetArrayData),
+            MemberType = typeof(InputOverflowExceptionTestData))]
         public void ThrowOverflowExceptionWhenAdding(double[] terms)
         {
             Assert.Throws<OverflowException>(() => _sut.Add(terms[0], terms[1]));
@@ -153,7 +154,8 @@ namespace Calculator.Tests
         [Trait("Category", "Exceptions")]
         [InlineData(new double[] { Double.MaxValue, Double.MinValue })]
         [InlineData(new double[] { Double.MinValue, Double.MaxValue })]
-        [InputsOverflowExceptionArrayArgumentsData]
+        [MemberData(nameof(InputOverflowExceptionTestData.GetArrayData),
+            MemberType = typeof(InputOverflowExceptionTestData))]
         public void ThrowOverflowExceptionWhenSubtracting(double[] terms)
         {
             Assert.Throws<OverflowException>(() => _sut.Subtract(terms[0], terms[1]));
@@ -170,7 +172,8 @@ namespace Calculator.Tests
         [Trait("Category", "Exceptions")]
         [InlineData(Double.MaxValue, Double.MaxValue)]
         [InlineData(Double.MaxValue, Double.MinValue)]
-        [InputsOverflowExceptionArgumentsData]
+        [MemberData(nameof(InputOverflowExceptionTestData.GetData),
+            MemberType = typeof(InputOverflowExceptionTestData))]
         public void ThrowOverflowExceptionWhenMultiplying(double multiplicand, double multiplier)
         {
             Assert.Throws<OverflowException>(() => _sut.Multiply(multiplicand, multiplier));
@@ -186,7 +189,8 @@ namespace Calculator.Tests
         [Trait("Category", "Exceptions")]
         [InlineData(Double.MaxValue, 1 / Double.MaxValue)]
         [InlineData(Double.MinValue, 1 / Double.MaxValue)]
-        [InputsOverflowExceptionArgumentsData]
+        [MemberData(nameof(InputOverflowExceptionTestData.GetData),
+            MemberType = typeof(InputOverflowExceptionTestData))]
         public void ThrowOverflowExceptionWhenDividing(double dividend, double divisor)
         {
             Assert.Throws<OverflowException>(() => _sut.Divide(dividend, divisor));
