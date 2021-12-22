@@ -80,7 +80,14 @@ namespace Calculator
             double firstTerm = GetUserDoubleInput("Addition", "Enter the first term and press enter!");
             double secondTerm = GetUserDoubleInput("Addition", "Enter the second term and press enter!");
 
-            _view.DisplayResult("Addition", $"The sum of the addition is {_operations.Add(firstTerm, secondTerm)}.");
+            try
+            {
+                _view.DisplayResult("Addition", $"The sum of the addition is {_operations.Add(firstTerm, secondTerm)}.");
+            }
+            catch (OverflowException overflowException)
+            {
+                _view.DisplayResult("Addition", overflowException.Message);
+            }
 
             ReadLine();
         }
@@ -94,7 +101,14 @@ namespace Calculator
             double minuend = GetUserDoubleInput("Subtraction", "Enter the minuend and press enter!");
             double subtrahend = GetUserDoubleInput("Subtraction", "Enter the subtrahend and press enter!");
 
-            _view.DisplayResult("Subtraction", $"The difference of the subtraction is {_operations.Subtract(minuend, subtrahend)}.");
+            try
+            {
+                _view.DisplayResult("Subtraction", $"The difference of the subtraction is {_operations.Subtract(minuend, subtrahend)}.");
+            }
+            catch (OverflowException overflowException)
+            {
+                _view.DisplayResult("Subtraction", overflowException.Message);
+            }
 
             ReadLine();
         }
@@ -108,7 +122,14 @@ namespace Calculator
             double multiplicand = GetUserDoubleInput("Multiplication", "Enter the multiplicand and press enter!");
             double multiplier = GetUserDoubleInput("Multiplication", "Enter the multiplier and press enter!");
 
-            _view.DisplayResult("Multiplication", $"The product of the multiplication is {_operations.Multiply(multiplicand, multiplier)}.");
+            try
+            {
+                _view.DisplayResult("Multiplication", $"The product of the multiplication is {_operations.Multiply(multiplicand, multiplier)}.");
+            }
+            catch (OverflowException overflowException)
+            {
+                _view.DisplayResult("Multiplication", overflowException.Message);
+            }
 
             ReadLine();
         }
@@ -129,6 +150,10 @@ namespace Calculator
             catch (DivideByZeroException divideByZeroException)
             {
                 _view.DisplayResult("Division", divideByZeroException.Message);
+            }
+            catch (OverflowException overflowException)
+            {
+                _view.DisplayResult("Division", overflowException.Message);
             }
 
             ReadLine();

@@ -15,7 +15,7 @@ namespace Calculator
         /// <returns>The sum</returns>
         public double Add(double firstTerm, double secondTerm)
         {
-            return firstTerm + secondTerm;
+            return ValidateOutput(ValidateInput(firstTerm) + ValidateInput(secondTerm));
         }
 
         /// <summary>
@@ -29,10 +29,10 @@ namespace Calculator
 
             for (int i = 0; i < terms.Length; i++)
             {
-                sum += terms[i];
+                sum += ValidateInput(terms[i]);
             }
 
-            return sum;
+            return ValidateOutput(sum);
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace Calculator
         /// <returns>The difference</returns>
         public double Subtract(double minuend, double subtrahend)
         {
-            return minuend - subtrahend;
+            return ValidateOutput(ValidateInput(minuend) - ValidateInput(subtrahend));
         }
 
         /// <summary>
@@ -54,14 +54,14 @@ namespace Calculator
         /// <returns>The difference</returns>
         public double Subtract(params double[] terms)
         {
-            double difference = terms[0];
+            double difference = ValidateInput(terms[0]);
 
             for (int i = 1; i < terms.Length; i++)
             {
-                difference -= terms[i];
+                difference -= ValidateInput(terms[i]);
             }
 
-            return difference;
+            return ValidateOutput(difference);
         }
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Calculator
         /// <returns>The product</returns>
         public double Multiply(double multiplicand, double multiplier)
         {
-            return multiplicand * multiplier;
+            return ValidateOutput(ValidateInput(multiplicand) * ValidateInput(multiplier));
         }
 
         /// <summary>
@@ -88,7 +88,39 @@ namespace Calculator
                 throw new DivideByZeroException("You can not divide by zero, please try again.");
             }
 
-            return dividend / divisor;
+            return ValidateOutput(ValidateInput(dividend)/ValidateInput(divisor));
+        }
+
+        /// <summary>
+        /// Validates the outputs not to be overflowed. If it do overflow an overflow 
+        /// exception will be thrown.
+        /// </summary>
+        /// <param name="output">The output to validate</param>
+        /// <returns>The validated output</returns>
+        private double ValidateOutput(double output)
+        {
+            if (Double.IsInfinity(output))
+            {
+                throw new OverflowException("The number calculated was either too large or too small, please try again.");
+            }
+
+            return output;
+        }
+
+        /// <summary>
+        /// Validates the inputs not to be overflowed. If they do overflow an overflow 
+        /// exception will be thrown.
+        /// </summary>
+        /// <param name="input">The input to validate</param>
+        /// <returns>The validated input</returns>
+        private double ValidateInput(double input)
+        {
+            if (Double.IsInfinity(input) || Double.IsNaN(input))
+            {
+                throw new OverflowException("One or more number inputs was either too large or too small, please try again.");
+            }
+
+            return input;
         }
     }
 }

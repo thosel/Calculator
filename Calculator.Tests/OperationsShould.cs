@@ -125,5 +125,107 @@ namespace Calculator.Tests
         }
 
         #endregion
+
+        #region Exceptions
+
+        /// <summary>
+        /// Asserts that an overflow exception is thrown when the 
+        /// inputs and or output do overflow when adding numbers.
+        /// </summary>
+        /// <param name="terms">Array containing the terms</param>
+        [Theory]
+        [Trait("Category", "Exceptions")]
+        [InlineData(new double[] { Double.MaxValue, Double.MaxValue })]
+        [InlineData(new double[] { Double.MinValue, Double.MinValue })]
+        [InlineData(new double[] { Double.PositiveInfinity, 0 })]
+        [InlineData(new double[] { 0, Double.PositiveInfinity })]
+        [InlineData(new double[] { Double.NegativeInfinity, 0 })]
+        [InlineData(new double[] { 0, Double.NegativeInfinity })]
+        [InlineData(new double[] { Double.NaN, 0 })]
+        [InlineData(new double[] { 0, Double.NaN })]
+        public void ThrowOverflowExceptionWhenAdding(double[] terms)
+        {
+            Assert.Throws<OverflowException>(() => _sut.Add(terms[0], terms[1]));
+            Assert.Throws<OverflowException>(() => _sut.Add(terms));
+        }
+
+        /// <summary>
+        /// Asserts that an overflow exception is thrown when the 
+        /// inputs and or output do overflow when subtracting numbers.
+        /// </summary>
+        /// <param name="terms">Array containing the terms</param>
+        [Theory]
+        [Trait("Category", "Exceptions")]
+        [InlineData(new double[] { Double.MaxValue, Double.MinValue })]
+        [InlineData(new double[] { Double.MinValue, Double.MaxValue })]
+        [InlineData(new double[] { Double.PositiveInfinity, 0 })]
+        [InlineData(new double[] { 0, Double.PositiveInfinity })]
+        [InlineData(new double[] { Double.NegativeInfinity, 0 })]
+        [InlineData(new double[] { 0, Double.NegativeInfinity })]
+        [InlineData(new double[] { Double.NaN, 0 })]
+        [InlineData(new double[] { 0, Double.NaN })]
+        public void ThrowOverflowExceptionWhenSubtracting(double[] terms)
+        {
+            Assert.Throws<OverflowException>(() => _sut.Subtract(terms[0], terms[1]));
+            Assert.Throws<OverflowException>(() => _sut.Subtract(terms));
+        }
+
+        /// <summary>
+        /// Asserts that an overflow exception is thrown when the 
+        /// inputs and or output do overflow when multiplying numbers.
+        /// </summary>
+        /// <param name="multiplicand">The multiplicand</param>
+        /// <param name="multiplier">The multiplier</param>
+        [Theory]
+        [Trait("Category", "Exceptions")]
+        [InlineData(Double.MaxValue, Double.MaxValue)]
+        [InlineData(Double.MaxValue, Double.MinValue)]
+        [InlineData(Double.PositiveInfinity, 1)]
+        [InlineData(1, Double.PositiveInfinity)]
+        [InlineData(Double.NegativeInfinity, 1)]
+        [InlineData(1, Double.NegativeInfinity)]
+        [InlineData(Double.NaN, 1)]
+        [InlineData(1, Double.NaN)]
+        public void ThrowOverflowExceptionWhenMultiplying(double multiplicand, double multiplier)
+        {
+            Assert.Throws<OverflowException>(() => _sut.Multiply(multiplicand, multiplier));
+        }
+
+        /// <summary>
+        /// Asserts that an overflow exception is thrown when the 
+        /// inputs and or output do overflow when dividing numbers.
+        /// </summary>
+        /// <param name="dividend">The dividend</param>
+        /// <param name="divisor">The divisor</param>
+        [Theory]
+        [Trait("Category", "Exceptions")]
+        [InlineData(Double.MaxValue, 1 / Double.MaxValue)]
+        [InlineData(Double.MinValue, 1 / Double.MaxValue)]
+        [InlineData(Double.PositiveInfinity, 1)]
+        [InlineData(1, Double.PositiveInfinity)]
+        [InlineData(Double.NegativeInfinity, 1)]
+        [InlineData(1, Double.NegativeInfinity)]
+        [InlineData(Double.NaN, 1)]
+        [InlineData(1, Double.NaN)]
+        public void ThrowOverflowExceptionWhenDividing(double dividend, double divisor)
+        {
+            Assert.Throws<OverflowException>(() => _sut.Divide(dividend, divisor));
+        }
+
+        /// <summary>
+        /// Asserts a divide by zero exception is thrown when dividing by zero.
+        /// </summary>
+        /// <param name="dividend">The dividend</param>
+        /// <param name="divisor">The divisor</param>
+        [Theory]
+        [Trait("Category", "Exceptions")]
+        [InlineData(0)]
+        [InlineData(null)]
+        public void ThrowExceptionWhenDividingByZero(double divisor)
+        {
+            Assert.Throws<DivideByZeroException>(() => _sut.Divide(100, divisor));
+        }
+
+        #endregion
     }
 }
