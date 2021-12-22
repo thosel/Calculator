@@ -137,12 +137,7 @@ namespace Calculator.Tests
         [Trait("Category", "Exceptions")]
         [InlineData(new double[] { Double.MaxValue, Double.MaxValue })]
         [InlineData(new double[] { Double.MinValue, Double.MinValue })]
-        [InlineData(new double[] { Double.PositiveInfinity, 0 })]
-        [InlineData(new double[] { 0, Double.PositiveInfinity })]
-        [InlineData(new double[] { Double.NegativeInfinity, 0 })]
-        [InlineData(new double[] { 0, Double.NegativeInfinity })]
-        [InlineData(new double[] { Double.NaN, 0 })]
-        [InlineData(new double[] { 0, Double.NaN })]
+        [InputsOverflowExceptionArrayArgumentsData]
         public void ThrowOverflowExceptionWhenAdding(double[] terms)
         {
             Assert.Throws<OverflowException>(() => _sut.Add(terms[0], terms[1]));
@@ -158,12 +153,7 @@ namespace Calculator.Tests
         [Trait("Category", "Exceptions")]
         [InlineData(new double[] { Double.MaxValue, Double.MinValue })]
         [InlineData(new double[] { Double.MinValue, Double.MaxValue })]
-        [InlineData(new double[] { Double.PositiveInfinity, 0 })]
-        [InlineData(new double[] { 0, Double.PositiveInfinity })]
-        [InlineData(new double[] { Double.NegativeInfinity, 0 })]
-        [InlineData(new double[] { 0, Double.NegativeInfinity })]
-        [InlineData(new double[] { Double.NaN, 0 })]
-        [InlineData(new double[] { 0, Double.NaN })]
+        [InputsOverflowExceptionArrayArgumentsData]
         public void ThrowOverflowExceptionWhenSubtracting(double[] terms)
         {
             Assert.Throws<OverflowException>(() => _sut.Subtract(terms[0], terms[1]));
@@ -180,12 +170,7 @@ namespace Calculator.Tests
         [Trait("Category", "Exceptions")]
         [InlineData(Double.MaxValue, Double.MaxValue)]
         [InlineData(Double.MaxValue, Double.MinValue)]
-        [InlineData(Double.PositiveInfinity, 1)]
-        [InlineData(1, Double.PositiveInfinity)]
-        [InlineData(Double.NegativeInfinity, 1)]
-        [InlineData(1, Double.NegativeInfinity)]
-        [InlineData(Double.NaN, 1)]
-        [InlineData(1, Double.NaN)]
+        [InputsOverflowExceptionArgumentsData]
         public void ThrowOverflowExceptionWhenMultiplying(double multiplicand, double multiplier)
         {
             Assert.Throws<OverflowException>(() => _sut.Multiply(multiplicand, multiplier));
@@ -201,12 +186,7 @@ namespace Calculator.Tests
         [Trait("Category", "Exceptions")]
         [InlineData(Double.MaxValue, 1 / Double.MaxValue)]
         [InlineData(Double.MinValue, 1 / Double.MaxValue)]
-        [InlineData(Double.PositiveInfinity, 1)]
-        [InlineData(1, Double.PositiveInfinity)]
-        [InlineData(Double.NegativeInfinity, 1)]
-        [InlineData(1, Double.NegativeInfinity)]
-        [InlineData(Double.NaN, 1)]
-        [InlineData(1, Double.NaN)]
+        [InputsOverflowExceptionArgumentsData]
         public void ThrowOverflowExceptionWhenDividing(double dividend, double divisor)
         {
             Assert.Throws<OverflowException>(() => _sut.Divide(dividend, divisor));
